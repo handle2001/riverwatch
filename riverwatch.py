@@ -1,8 +1,7 @@
 # Riverwatch
-# Periodically fetch river gauge metrics from USGS
+# Telegraf exec plugin that fetches river gauge metrics from USGS
 import json
 import requests
-import time
 import re
 
 API_URL = "https://waterservices.usgs.gov/nwis/iv/"
@@ -21,14 +20,15 @@ USGS_VARIABLE_CODES = {
     "63160":"height_above_datum",        # 63160 Water level above NAVD 1988, in feet
     "63680":"turbidity",                 # 63680 Turbidity, in formazin nephelometric units (FNU)
 }
-# Get list of site codes to query for
-# For now just use "03451500" French Broad at Asheville
-# TODO: Put the list of sites in a file or DB table
 
+# List of site codes to query for
+# Site codes can be found by going to https://waterdata.usgs.gov/usa/nwis/rt
+#   selecting the state of interest and then clicking "Statewide Streamflow Table"
 sites = [
     "03451500", # French Broad at Asheville
     "03441000", # Davidson River at Brevard
 ]
+
 site_data  = {}
 
     
@@ -58,8 +58,8 @@ for site in sites:
     site_data[site] = metrics
     
 for site in sites:
-    data = site_data[site]
-    for measurement in data:
-        if measurement != "siteName":
-            siteName = re.escape(data['siteName'][:-4].title())
-            print(f"{measurement},siteID={site},siteName={siteName} value={data[measurement]}")
+    metrics = site_data[site]
+    for metric in metrics:
+        if metric != "siteName":
+            siteName = re.escape(metrics['siteName'][:-4].title())
+            print(f"{metric},siteID={site},siteName={siteName} value={metrics[metric]}")
