@@ -3,6 +3,7 @@
 import json
 import requests
 import time
+import re
 
 API_URL = "https://waterservices.usgs.gov/nwis/iv/"
 API_RESPONSE_FORMAT = "json"
@@ -59,4 +60,5 @@ for site in sites:
     data = site_data[site]
     for measurement in data:
         if measurement != "siteName":
-            print(f"{measurement},siteID={site},siteName=\"{data['siteName'][:-4].title()}\" value={data[measurement]}")
+            siteName = re.escape(data['siteName'][:-4].title())
+            print(f"{measurement},siteID={site},siteName=\"{siteName}\" value={data[measurement]}")
