@@ -27,6 +27,9 @@ USGS_VARIABLE_CODES = {
 sites = [
     "03451500", # French Broad at Asheville
     "03441000", # Davidson River at Brevard
+    "03456991", # Pigeon River at Canton
+    "03451000", # Swannanoa River at Biltmore
+    "02176930", # Chattooga River at Burrells Ford
 ]
 
 site_data  = {}
