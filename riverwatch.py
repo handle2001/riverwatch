@@ -28,8 +28,8 @@ for site in sites:
     raw_data = json.loads(r.text)
     raw_data = raw_data['value']['timeSeries']
     site_data[site] = {
-        'siteName': raw_data[0]['sourceInfo']['siteName'],
-        'timeStamp': raw_data[0]['values'][0]['value'][0]['dateTime'],
+        # 'siteName': raw_data[0]['sourceInfo']['siteName'],
+        #'timeStamp': raw_data[0]['values'][0]['value'][0]['dateTime'],
         'temperature': raw_data[0]['values'][0]['value'][0]['value'],
         'precipitation': raw_data[1]['values'][0]['value'][0]['value'],
         'discharge': raw_data[2]['values'][0]['value'][0]['value'],
@@ -58,4 +58,4 @@ for site in sites:
 for site in sites:
     data = site_data[site]
     for measurement in data:
-        print(f"{measurement},siteID=\"{site}\" value=\"{data[measurement]}\"")
+        print(f"{measurement},siteID=\"{site}\" value={data[measurement]}")
