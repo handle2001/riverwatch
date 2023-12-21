@@ -64,5 +64,6 @@ for site in sites:
     metrics = site_data[site]
     for metric in metrics:
         if metric != "siteName":
-            siteName = re.escape(metrics['siteName'][:-4].title())
+            siteName = re.escape(metrics['siteName'][:-4].title()) # Escape spaces in site name
+            siteName = siteName.replace(',', '') # Strip commas in site name
             print(f"{metric},siteID={site},siteName={siteName} value={metrics[metric]}")
