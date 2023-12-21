@@ -59,4 +59,4 @@ for site in sites:
     data = site_data[site]
     for measurement in data:
         if measurement != "siteName":
-            print(f"{measurement},siteID={site},siteName='{data['siteName'][:-4].title()}' value={data[measurement]}")
+            print(f"{measurement},siteID={site},siteName=\"{data['siteName'][:-4].title()}\" value={data[measurement]}")
