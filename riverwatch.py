@@ -58,4 +58,4 @@ for site in sites:
 for site in sites:
     data = site_data[site]
     for measurement in data:
-        print(f"{measurement},siteID=\"{site}\" value={data[measurement]}")
+        print(f"{measurement},siteID={site} value={data[measurement]}")
