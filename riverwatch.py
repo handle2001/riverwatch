@@ -61,4 +61,4 @@ for site in sites:
     for measurement in data:
         if measurement != "siteName":
             siteName = re.escape(data['siteName'][:-4].title())
-            print(f"{measurement},siteID={site},siteName=\"{siteName}\" value={data[measurement]}")
+            print(f"{measurement},siteID={site},siteName={siteName} value={data[measurement]}")
