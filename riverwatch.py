@@ -2,6 +2,7 @@
 # Periodically fetch river gauge metrics from USGS
 import json
 import requests
+import time
 
 API_URL = "https://waterservices.usgs.gov/nwis/iv/"
 API_RESPONSE_FORMAT = "json"
@@ -57,4 +58,4 @@ for site in sites:
 for site in sites:
     data = site_data[site]
     for measurement in data:
-        print(f"{measurement},siteID=\"{site}\" value=\"{data[measurement]}\"")
+        print(f"{measurement},siteID=\"{site}\" value=\"{data[measurement]}\" {int(time.time())}")
