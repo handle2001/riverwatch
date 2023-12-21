@@ -64,7 +64,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]
+![Product Name Screen Shot][product-screenshot]
 
 Riverwatch is a <a href="https://www.influxdata.com/time-series-platform/telegraf/">Telegraf</a> exec input plugin that fetches data for a specified list of stream sites from USGS and inserts it into Telegraf's metric database. From there the data can be exported using any of the available Telegraf output plugins to an appropriate storage and/or graphing application. The example above was created using <a href="https://prometheus.io/">Prometheus</a> and <a href="https://grafana.com/">Grafana</a> to create time series plots of various metrics.
 
